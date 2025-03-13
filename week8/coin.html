@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>โปรแกรมท้ายหัวก้อย</h1>
+    <div id="result"></div>
+
+    <script>
+        let round = prompt("ต้องการเล่นกี่รอบ")
+        for (var i = 0; i < round; i++) {
+            var answer = prompt("หัวหรือก้อยน้าาาา")
+            var random_answer = ""
+
+            if (Math.floor(Math.random() * 10) <= 4) {
+                random_answer = "หัว"
+            } else {
+                random_answer = "ก้อย"
+            }
+        }
+
+        if (answer == random_answer) {
+            document.getElementById("result").innerHTML += "คุณชนะ"
+        } else {
+            document.getElementById("result").innerHTML += "คุณแพ้"
+        }
+    </script>
+</body>
+
+</html>

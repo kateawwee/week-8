@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โปรแกรมทายหัวก้อย</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #0eb905;
+        }
+        
+        h1 {
+            color: #333;
+            border: #ccc;
+            border-radius: 0%;
+        }
+        
+        #result {
+            margin-top: 20px;
+            background-color: rgb(177, 0, 0);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        #answer-input {
+            width: 200px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        #submit-button {
+            background-color: #269bda;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        #play-again-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>โปรแกรมทายหัวก้อย</h1>
+    <input type="text" id="answer-input" placeholder="กรอกคำตอบของคุณ (หัว หรือ ก้อย)">
+    <button id="submit-button">ส่งคำตอบ</button>
+    <div id="result"></div>
+    <button id="play-again-button" style="display: none;">เล่นอีกครั้ง</button>
+
+    <script>
+        let round = prompt("ต้องการเล่นกี่รอบ");
+        const submitButton = document.getElementById("submit-button");
+        const playAgainButton = document.getElementById("play-again-button");
+        const resultDiv = document.getElementById("result");
+
+        let wins = 0;
+        let losses = 0;
+        let totalRounds = 0;
+
+        submitButton.addEventListener("click", () => {
+            const answer = answerInput.value.toLowerCase();
+            const randomAnswer = Math.random() < 0.5 ? "หัว" : "ก้อย";
+
+            const resultParagraph = document.createElement('p');
+            resultDiv.appendChild(resultParagraph);
+
+            if (answer === randomAnswer) {
+                wins++;
+                resultParagraph.textContent = `รอบที่ ${totalRounds + 1}: คุณชนะ! `;
+                resultParagraph.style.color = "green";
+            } else {
+                losses++;
+                resultParagraph.textContent = `รอบที่ ${totalRounds + 1}: คุณแพ้! `;
+                resultParagraph.style.color = "red";
+            }
+
+            totalRounds++;
+            answerInput.value = "";
+
+            
+            const maxRounds = parseInt(roundInput.value);
+            if (maxRounds > 0 && totalRounds >= maxRounds) {
+                resultDiv.innerHTML += `<p>สรุป: ชนะ ${wins} ครั้ง แพ้ ${losses} ครั้ง</p>`;
+                submitButton.disabled = true;
+                stopButton.style.display = "none";
+            }
+        });
+       
+
+        submitButton.addEventListener("click", function() {
+            let wins = 0;
+            let losses = 0;
+
+            for (var i = 0; i < round; i++) {
+                const answer = document.getElementById("answer-input").value;
+                const randomAnswer = Math.random() < 0.5 ? "หัว" : "ก้อย";
+
+                if (answer === randomAnswer) {
+                    wins++;
+                    resultDiv.innerHTML += `<p>รอบที่ ${i+1}: คุณชนะ!</p>`;
+                } else {
+                    losses++;
+                    resultDiv.innerHTML += `<p>รอบที่ ${i+1}: คุณแพ้!</p>`;
+                }
+            }
+
+            resultDiv.innerHTML += `<p>สรุป: ชนะ ${wins} ครั้ง แพ้ ${losses} ครั้ง</p>`;
+            submitButton.style.display = "none";
+            playAgainButton.style.display = "block";
+        });
+
+        playAgainButton.addEventListener("click", function() {
+            resultDiv.innerHTML = "";
+            submitButton.style.display = "block";
+            playAgainButton.style.display = "none";
+        });
+    </script>
+</body>
+
+</html>

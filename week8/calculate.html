@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>แปลงอุณหภูมิ</h1>
+    <div id="toCelsius"></div>
+    <div id="toFahrenheit"></div>
+
+    <script>
+        function toCelsius(fahrenheit) {
+            //let fahrenheit = prompt
+            let value = [(fahrenheit - 32) * 5] / 9
+            return value.toFixed(2) + "C"
+                //document.getElementById("result").innerHTML = value.toFixed(2)
+        }
+        //toCelsius
+
+        function toFahrenheit(celsius) {
+            let value = [(celsius * 9) + 32] / 5
+            return value.toFixed(2) + "F"
+                // document.getElementById("result").innerHTML = value.toFixed(2)
+        }
+
+        function display(elementid, value) {
+            document.getElementById(elementid).innerHTML = value
+        }
+
+        toCelsius(25)
+        display("toCelsius", toCelsius(25))
+        toFahrenheit(80)
+        display("toFahrenheit", toFahrenheit(80))
+
+
+        //function
+        //sayhello(username, userlastname) {
+        //return "Hello"
+        //}
+
+        //function getage() {
+        //return 17
+        //}
+
+
+        //let input = prompt("enter your name")
+        //alertcrii(sayhello("input, TSS "))
+    </script>
+
+</body>
+
+</html>

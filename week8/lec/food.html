@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>โปรแกรมคำนวนค่าอาหาร</title>
+</head>
+
+<body>
+    <h1>โปรแกรมคำนวนค่าอาหาร</h1>
+    <div id="price"></div>
+    <div id="result"></div>
+
+    <script>
+        let n = prompt("จำนวนอาหาร")
+        let sum = ""
+
+        for (vari = 1; i <= n; i++) {
+            let price = prompt("รายการอาหารที่ต้องการ" + i)
+            sum = sum + parseInt(price)
+            document.getElementById("price").innerHTML += "ราคาอาหาร" + i + "คือ" + price +
+                document.getElementById("result").innerHTML = "ราคาอาหาร" + i + "คือ" + result
+        }
+    </script>
+</body>
+
+</html>
